@@ -38,6 +38,7 @@
 		4B72A4031940C916001639D9 /* SwiftPongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B72A4081940C916001639D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B72A4091940C916001639D9 /* SwiftPongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPongTests.swift; sourceTree = "<group>"; };
+		4B7D5C031941EB2500BC1511 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				4B72A3F41940C916001639D9 /* GameScene.sks */,
 				4B72A3F61940C916001639D9 /* GameScene.swift */,
 				4B72A3F81940C916001639D9 /* GameViewController.swift */,
+				4B7D5C031941EB2500BC1511 /* Playground.playground */,
 				4B72A3FA1940C916001639D9 /* Main.storyboard */,
 				4B72A3FD1940C916001639D9 /* Images.xcassets */,
 				4B72A3F01940C916001639D9 /* Supporting Files */,
@@ -405,6 +407,7 @@
 				4B72A40F1940C916001639D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B72A4101940C916001639D9 /* Build configuration list for PBXNativeTarget "SwiftPongTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +416,7 @@
 				4B72A4121940C916001639D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
