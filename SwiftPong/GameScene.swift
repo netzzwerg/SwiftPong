@@ -24,13 +24,21 @@ class GameScene: SKScene {
         self.physicsWorld.gravity = CGVectorMake( 0, 0 )
         
         // set background color
-        self.backgroundColor = SKColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        //self.backgroundColor = SKColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.2)
         
         // set start position
-        spriteBall.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        //spriteBall.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         spriteBall.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        
+        
+        //spriteBall.position = CGPoint(x:0.0 + 25, y:725.0 - 25) // left top position
+        //spriteBall.position = CGPoint(x:1024.0 - 25, y:725.0 - 25) // right top position
+        //spriteBall.position = CGPoint(x:0.0 + 25, y:45.0 + 25) // left bottom position
+        //spriteBall.position = CGPoint(x:1024.0 - 25, y:45.0 + 25) // right bottom position
+        
         spriteBall.xScale = 0.25
         spriteBall.yScale = 0.25
+        
         
         // set physics
         spriteBall.physicsBody = SKPhysicsBody(circleOfRadius: spriteBall.size.height / 2.0)
@@ -39,8 +47,6 @@ class GameScene: SKScene {
         
         self.addChild(spriteBall)
         
-        println(spriteBall.size.height / 2.0)
-        println(spriteBall.size.width / 2.0)
         
         // set start move
         spriteBall.physicsBody.velocity = CGVectorMake(10, 60)
@@ -52,7 +58,9 @@ class GameScene: SKScene {
         
         println(stageWidth)
         println(stageHeight)
-    
+        
+        
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -69,10 +77,12 @@ class GameScene: SKScene {
             
             println(location.x)
             println(location.y)
-      
+            println(self.convertPointFromView(CGPoint(x:location.x, y:location.y)))
+            println(self.convertPointToView(CGPoint(x:location.x, y:location.y)))
+            
         }
     }
-   
+    
     func checkCollision(ballPosX:CGFloat, ballPosY:CGFloat, ballRadius:CGFloat, stageWidth:CGFloat, stageHeight:CGFloat) {
         
         let dx = ballPosX - ballRadius
@@ -81,23 +91,23 @@ class GameScene: SKScene {
         let sy = ballPosY + ballRadius
         
         // horizontal wall hit
-        if (sx < 224.0) {
-            spriteBall.position.x = 224.0 + ballRadius;
+        if (dx < 0) {
+            spriteBall.position.x = 0 + ballRadius;
             spriteBall.physicsBody.velocity.dx *= -1;
             println("wall hit left")
-        } else if (sx > stageWidth) {
-            spriteBall.position.x = stageWidth - ballRadius;
+        } else if (sx > 1024) {
+            spriteBall.position.x = 1024 - ballRadius;
             spriteBall.physicsBody.velocity.dx *= -1;
             println("wall hit right")
         }
         
         // vertical wall hit
-        if (dy > 738) {
-            spriteBall.position.y = 738 + ballRadius;
+        if (dy > 725 - 50) {
+            spriteBall.position.y = 725 - 50 + ballRadius;
             spriteBall.physicsBody.velocity.dy *= -1;
             println("wall hit top")
-        } else if (dy < 0.0) {
-            spriteBall.position.y = ballRadius;
+        } else if (dy < 45.0) {
+            spriteBall.position.y = 45 + ballRadius;
             spriteBall.physicsBody.velocity.dy *= -1;
             println(spriteBall.position.y)
             println("wall hit bottom")
@@ -113,8 +123,8 @@ class GameScene: SKScene {
         let ballRadius:CGFloat = spriteBall.size.height / 2.0
         
         if(doAnimation) {
-            self.checkCollision(spriteBall.position.x, ballPosY: spriteBall.position.y, ballRadius: 30.0, stageWidth: stageHeight, stageHeight: stageWidth)
+            self.checkCollision(spriteBall.position.x, ballPosY: spriteBall.position.y, ballRadius: 25, stageWidth: stageHeight, stageHeight: stageWidth)
         }
     }
-
+    
 }
